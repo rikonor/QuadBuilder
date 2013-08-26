@@ -1,0 +1,8 @@
+1) Use autocomplete for the different motors/esc's/etc.
+http://jqueryui.com/autocomplete/
+
+2) On main page, compress parts list into a tabbed window to allow for more comfortable browsing.
+
+5) Use <iframe>'s for "popup" on hover info screens.
+
+6) Use cookies to save shown spec and reload it again on reentry to the page. You can save in the cookie all of the part id's. Like so: Cookie-content: "Motor:1234,ESC:1456,Prop:1414"

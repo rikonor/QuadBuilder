@@ -1,0 +1,88 @@
+​<!DOCTYPE html>
+{% autoescape true %}
+<html>
+
+	<head>
+      <link rel="stylesheet" href="/stylesheets/add.css" />
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+      <!-- // <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.js"></script> -->
+      <script src='/scripts/add.js'></script>
+  	<title>QuadBuilder v1.0 - Add new item</title>
+	</head>
+
+	<body>
+  	<div id=header style="text-align: center">
+     	<h3 style="text-align: center">QuadBuilder</h3>
+    	<div style="text-align: center">
+      <img id="headerImage" src="/images/header_img.jpg"/>
+    	</div>
+    	<h4 style="text-align: center">v1.0 - by <a href="mailto:rikonor@gmail.com">rikonor</a>.</h4>
+    	<span class="button" id="return">Return</span>
+  	</div>
+  
+  	<div id="wrapper">
+  		<div id="tabContainer">
+  			<div class="tabs">
+  				<ul>
+  					<li id="tabHeader_motor">Motor</li>
+  					<li id="tabHeader_esc">ESC</li>
+            <li id="tabHeader_prop">Prop</li>
+  				</ul>
+  			</div>
+  			<div class="tabscontent">
+	  			<div class="tabpage" id="tabpage_motor">
+	  				<div class="part" id="motor">
+			        <p>Motor</p>
+			        <form name="MotorForm" id="MotorForm" action="/AddMotor" method="post">
+			          <ul>
+			            <li>Brand<input type="text" name="motorBrand"/></li>
+			            <li>Name<input type="text" name="motorName"/></li>
+			            <li>Size<input type="text" name="motorSize"/></li>
+			            <li>kV<input type="text" name="motorKv"/></li>
+			            <li>Weight<input type="text" name="motorWeight"/></li>
+			            <li>Price<input type="text" name="motorPrice"/></li>
+			          </ul>
+			        </form>
+			        <div class="button" id="addMotor">Add</div>
+			      </div>
+	  			</div>
+	  			<div class="tabpage" id="tabpage_esc">
+	  				<div class="part" id="esc">
+				      <p>ESC</p>
+				      <form name="EscForm" id="EscForm" action="/AddEsc" method="post">
+				        <ul>
+				          <li>Brand<input type="text" name="escBrand"/></li>
+				          <li>Name<input type="text" name="escName"/></li>
+				          <li>Amperage<input type="text" name="escAmp"/></li>
+				          <li>Max-amperage<input type="text" name="escMaxAmp"/></li>
+				          <li>Weight<input type="text" name="escWeight"/></li>
+				          <li>Price<input type="text" name="escPrice"/></li>
+				        </ul>
+				      </form>
+				      <div class="button" id="addEsc">Add</div>
+				    </div>
+	  			</div>
+          <div class="tabpage" id="tabpage_prop">
+            <div class="part" id="prop">
+              <p>Prop</p>
+              <form name="PropForm" id="PropForm" action="/AddProp" method="post">
+                <ul>
+                  <li>Brand<input type="text" name="propBrand"/></li>
+                  <li>Name<input type="text" name="propName"/></li>
+                  <li>Length<input type="text" name="propLength"/></li>
+                  <li>Pitch<input type="text" name="propPitch"/></li>
+                  <li>Weight<input type="text" name="propWeight"/></li>
+                  <li>Price<input type="text" name="propPrice"/></li>
+                </ul>
+              </form>
+              <div class="button" id="addProp">Add</div>
+            </div>
+          </div>
+  			</div>
+  		</div>
+  	</div>
+
+    
+	</body>
+</html>
+{% endautoescape %}

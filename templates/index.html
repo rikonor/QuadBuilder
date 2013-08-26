@@ -1,0 +1,87 @@
+​<!DOCTYPE html>
+{% autoescape true %}
+<html>
+  <head>
+        <link rel="stylesheet" href="/stylesheets/style.css" />
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src='/scripts/script.js'></script>
+    <title>QuadBuilder v1.0 - by rikonor</title>
+  </head>
+  <body>
+      <div id=header style="text-align: center">
+          <h3 style="text-align: center">QuadBuilder</h3>
+          <div style="text-align: center">
+          <img id="headerImage" src="/images/header_img.jpg"/>
+          </div>
+          <h4 style="text-align: center">v1.0 - by <a href="mailto:rikonor@gmail.com">rikonor</a>.</h4>
+          <span class="button" id="reset">Reset</span> /
+          <span class="button" id="submit">Submit</span> /
+          <span class="button" id="add">Add</span>
+      </div>
+      
+      <div id="wrapper">
+        <div id="tabContainer">
+          <div class="tabs">
+            <ul>
+              <li id="tabHeader_motor">Motor</li>
+              <li id="tabHeader_esc">ESC</li>
+              <li id="tabHeader_prop">Prop</li>
+            </ul>
+          </div>
+          <div class="tabscontent">
+            <div class="tabpage" id="tabpage_motor">
+              <div id="motor">
+                <p>Motors</p>
+                {% for motor in motors %}
+                <div class="itemPartsList">
+                  <span class="itemTextPartsList">{{ motor.toString() }}</span>
+                  <a href="/Motor/{{ motor.key.id() }}" class="partLink"> p</a>
+                </div>
+                {% endfor %}
+                <form name="MotorForm">
+                  <input type="text" name="motorItem"/>
+                </form>
+                <div class="button" id="addMotor">Add</div>
+              </div>
+            </div>
+            <div class="tabpage" id="tabpage_esc">
+              <div id="esc">
+                <p>Esc's</p>
+                {% for esc in escs %}
+                  <div class="itemPartsList">
+                  <span class="itemTextPartsList">{{ esc.toString() }}</span>
+                  <a href="/ESC/{{ esc.key.id() }}" class="partLink"> p</a>
+                  </div>
+                {% endfor %}
+                <form name="EscForm">
+                  <input type="text" name="escItem"/>
+                </form>
+                <div class="button" id="addEsc">Add</div>
+              </div>
+            </div>
+            <div class="tabpage" id="tabpage_prop">
+              <div id="prop">
+                <p>Props</p>
+                {% for prop in props %}
+                  <div class="itemPartsList">
+                  <span class="itemTextPartsList">{{ prop.toString() }}</span>
+                  <a href="/Prop/{{ prop.key.id() }}" class="partLink"> p</a>
+                  </div>
+                {% endfor %}
+                <form name="PropForm">
+                  <input type="text" name="propItem"/>
+                </form>
+                <div class="button" id="addProp">Add</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div id="finalList">
+          <p style="text-decoration: underline">Quad specifications</p>
+      </div>
+  </body>
+</html>
+{% endautoescape %}
