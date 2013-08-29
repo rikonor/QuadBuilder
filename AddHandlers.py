@@ -59,3 +59,28 @@ class AddProp(webapp2.RequestHandler):
         prop.put()
 
         self.redirect('/')
+
+class AddSpec(webapp2.RequestHandler):
+
+    def post(self):
+
+        # Collect parts from datastore according to their id's.
+        motorId = self.request.get('motorId')
+        motor   = Motor.get_by_id(int(motorId), parent=motor_key())        
+        escId = self.request.get('escId')
+        esc   = Esc.get_by_id(int(escId), parent=esc_key())
+        propId = self.request.get('propId')
+        prop   = Prop.get_by_id(int(propId), parent=prop_key())
+
+        # Create Spec object, populate and save it.
+        spec_group_name = self.request.get('spec_group_name',
+                                            DEFAULT_SPEC_GROUP)
+        spec = Spec(parent=spec_key(spec_group_name))
+
+        spec.motorKey = motor.key
+        spec.escKey   = esc.key
+        spec.propKey  = prop.key
+        
+        spec.put()
+
+        self.redirect('/')

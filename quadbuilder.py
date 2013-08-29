@@ -17,6 +17,7 @@ JINJA_ENVIRONMENT = jinja2.Environment(
 class MainPage(webapp2.RequestHandler):
 
     def get(self):
+        ######### Getting Parts from DB ###########
         # Get the motors from the datastore
         motor_group_name = self.request.get('motor_group_name', DEFAULT_MOTOR_GROUP)
         motors_query = Motor.query(ancestor=motor_key(motor_group_name))
@@ -29,11 +30,18 @@ class MainPage(webapp2.RequestHandler):
         prop_group_name = self.request.get('prop_group_name', DEFAULT_PROP_GROUP)
         props_query = Prop.query(ancestor=prop_key(prop_group_name))
         props = props_query.fetch(10)
-        # Put parts in dictionary
+
+        ######### Getting Specs from DB ###########
+        spec_group_name = self.request.get('spec_group_name', DEFAULT_SPEC_GROUP)
+        specs_query = Spec.query(ancestor=spec_key(spec_group_name))
+        specs = specs_query.fetch(10)
+
+        # Put parts and specs in dictionary
         template_values = {
             'motors': motors,
             'escs': escs,
             'props': props,
+            'specs': specs,
         }
         # Generate the page, pass motors and escs.
         template = JINJA_ENVIRONMENT.get_template('index.html')
@@ -69,5 +77,6 @@ application = webapp2.WSGIApplication([
     ('/AddMotor', AddMotor),
     ('/AddEsc', AddEsc),
     ('/AddProp', AddProp),
+    ('/AddSpec', AddSpec),
     ('/(Motor|ESC|Prop)/(\d+)', PermalinkHandler),
 ], debug=True)

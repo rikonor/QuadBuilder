@@ -29,13 +29,25 @@ a {
     cursor: pointer;
 }
 
+.itemId {
+    font-size: 3px;
+}
+
 #finalList {
     padding: 10px;
-    height: 40px;
+    height: 96px;
     width: 40%;
     border-radius: 6px;
     border: 2px solid black;
     float: right;
+}
+
+.itemText:hover {
+    text-decoration: underline;
+}
+
+#specsList {
+    /*background-color: yellow;*/
 }
 
 /*This is where the Tabbing CSS begins*/
