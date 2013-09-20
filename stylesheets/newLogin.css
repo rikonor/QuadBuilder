@@ -1,0 +1,60 @@
+body {
+	background-color: black;
+	color: white;
+	width: 60%;
+	margin: auto;
+}
+
+/* Main Title */
+
+#header {
+	border: 1px solid white;
+	/*width: 50%;*/
+	/*margin: auto;*/
+}
+
+#header_title {
+	font-size: 32px;
+	margin: 2px;
+}
+
+/* Navbar */
+
+#navbar {
+	border: 1px solid white;
+}
+
+a {
+	text-decoration: none;
+}
+
+.navButton {
+	padding-left: 3px;
+	padding-right: 10px;
+	color: white;
+}
+
+.navButton:hover {
+	background-color: white;
+	color: black;
+}
+
+/* Content rules */
+
+.headLine {
+	text-align: center;
+}
+
+.login_box {
+	margin: auto;
+	width: 35%;
+	text-align: center;
+	padding: 10px;
+	border: 1px solid white;
+	border-radius: 4px
+}
+
+#error_message {
+	color: red;
+}
+

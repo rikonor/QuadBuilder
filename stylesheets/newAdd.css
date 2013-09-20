@@ -1,0 +1,126 @@
+body {
+	background-color: black;
+	color: white;
+	width: 60%;
+	margin: auto;
+}
+
+/* Main Title */
+
+#header {
+	border: 1px solid white;
+	/*width: 50%;*/
+	/*margin: auto;*/
+}
+
+#header_title {
+	font-size: 32px;
+	margin: 2px;
+}
+
+/* Navbar */
+
+#navbar {
+	border: 1px solid white;
+}
+
+a {
+	text-decoration: none;
+}
+
+.navButton {
+	padding-left: 3px;
+	padding-right: 10px;
+	color: white;
+	cursor: pointer;
+}
+
+.navButton:hover {
+	background-color: white;
+	color: black;
+}
+
+/* Content rules */
+
+.headLine {
+	text-align: center;
+}
+
+.itemId {
+    font-size: 3px;
+}
+
+#finalListHeader {
+	text-decoration: underline;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+#finalList {
+    padding: 10px;
+    height: 96px;
+    border-radius: 4px;
+    border: 1px solid white;
+}
+
+.itemText:hover {
+    text-decoration: underline;
+}
+
+/* Tabbing CSS */
+
+#wrapper {
+    margin: auto;
+    width: 720px;
+    /*margin: 40px auto 0;*/
+}
+
+#wrapper h1 {
+    color: #FFF;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#tabContainer {
+    width: 700px;
+    padding: 15px;
+}
+
+.tabs {
+    height: 30px;
+}
+
+.tabs > ul {
+    font-size: 1em;
+    list-style: none;
+}
+
+.tabs > ul > li {
+    border: 1px solid white;
+    margin: 0 2px 0 0;
+    padding: 5px 10px;
+    display: block;
+    float: left;
+    color: #FFF;
+    /*background: #FFFFFF;*/
+}
+
+.tabs > ul > li:hover{
+    cursor:pointer;
+    color: #333;
+}
+
+.tabs > ul > li.tabActiveHeader{
+    cursor:pointer;
+    color: #333;
+}
+
+.tabscontent {
+    border: 1px solid white;
+    border-radius: 3px;
+    padding:10px 10px 25px;
+    margin:0;
+    color: white;
+}
+
+

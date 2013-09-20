@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% autoescape true %}
+<html>
+	<head>
+		<link rel="stylesheet" href="../stylesheets/newLogin.css" />
+		<title>QuadBuilder - v1.0 - Login</title>
+	</head>
+
+	<body>
+		<div id="header">
+      <p id="header_title"><em>QuadBuilder</em></p>
+      <div id="userNavbar">
+        {% if user %}
+        Welcome, <a class="navButton" href="/User/{{ user.key.id() }}">{{ user.name }}</a>!
+        <a class="navButton" href="/Logout">Logout</a>
+        {% else %}
+        <a class="navButton" href="/Signup">Signup</a>
+        <a class="navButton" href="/Login">Login</a>
+        {% endif %}
+      </div>
+      <div id="navbar">
+        <a class="navButton" href="/">Latest Builds</a>
+        <a class="navButton" href="/NewBuild">New Build</a>
+        <a class="navButton" href="/Add">Add part</a>
+        <a class="navButton" href="/AllBuilds">All submissions</a>
+      </div>
+    </div>
+    	
+    <div id="content">
+    	<h2 class="headLine">Login</h2>
+    	<div class="login_box">
+    		<form method="post">
+	    		<label> Username 
+	    			<input type="text" name="username">
+	    		</label><br>
+	    		<label> Password
+	    			<input type="password" name="password">
+	    		</label><br>
+	    		<p id="error_message">{{ error }}</p>
+	    		<input type="submit">
+    		</form>
+    	</div>
+    </div>
+	</body>
+</html>
+{% endautoescape %}

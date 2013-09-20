@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+{% autoescape true %}
+<html>
+  <head>
+    <!-- Remember to change css file path -->
+    <link rel="stylesheet" href="../stylesheets/newAdd.css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src='/scripts/newAdd.js'></script>
+    <title>QuadBuilder v1.0 - by rikonor</title>
+  </head>
+  <body>
+    <div id="header">
+      <p id="header_title"><em>QuadBuilder</em></p>
+      <div id="userNavbar">
+        {% if user %}
+        Welcome, <a class="navButton" href="/User/{{ user.key.id() }}">{{ user.name }}</a>!
+        <a class="navButton" href="/Logout">Logout</a>
+        {% else %}
+        <a class="navButton" href="/Signup">Signup</a>
+        <a class="navButton" href="/Login">Login</a>
+        {% endif %}
+      </div>
+      <div id="navbar">
+        <a class="navButton" href="/">Latest Builds</a>
+        <a class="navButton" href="/NewBuild">New Build</a>
+        <a class="navButton" href="/Add">Add part</a>
+        <a class="navButton" href="/AllBuilds">All submissions</a>
+      </div>
+    </div>
+
+    <div id="content">
+      <h2 class="headLine">Add Part</h2>
+      <div id="wrapper">
+        <div id="tabContainer">
+          <div class="tabs">
+            <ul>
+              <li id="tabHeader_motor">Motor</li>
+              <li id="tabHeader_esc">ESC</li>
+              <li id="tabHeader_prop">Prop</li>
+            </ul>
+          </div>
+          <div class="tabscontent">
+            <div class="tabpage" id="tabpage_motor">
+              <div class="part" id="motor">
+                <p>Motor</p>
+                <form name="MotorForm" id="MotorForm" action="/AddMotor" method="post">
+                  <ul>
+                    <li>Brand<input type="text" name="motorBrand"/></li>
+                    <li>Name<input type="text" name="motorName"/></li>
+                    <li>Size<input type="text" name="motorSize"/></li>
+                    <li>kV<input type="text" name="motorKv"/></li>
+                    <li>Weight<input type="text" name="motorWeight"/></li>
+                    <li>Price<input type="text" name="motorPrice"/></li>
+                  </ul>
+                </form>
+                <span class="navButton" id="addMotor">Add</span>
+              </div>
+            </div>
+            <div class="tabpage" id="tabpage_esc">
+              <div class="part" id="esc">
+                <p>ESC</p>
+                <form name="EscForm" id="EscForm" action="/AddEsc" method="post">
+                  <ul>
+                    <li>Brand<input type="text" name="escBrand"/></li>
+                    <li>Name<input type="text" name="escName"/></li>
+                    <li>Amperage<input type="text" name="escAmp"/></li>
+                    <li>Max-amperage<input type="text" name="escMaxAmp"/></li>
+                    <li>Weight<input type="text" name="escWeight"/></li>
+                    <li>Price<input type="text" name="escPrice"/></li>
+                  </ul>
+                </form>
+                <span class="navButton" id="addEsc">Add</span>
+              </div>
+            </div>
+            <div class="tabpage" id="tabpage_prop">
+              <div class="part" id="prop">
+                <p>Prop</p>
+                <form name="PropForm" id="PropForm" action="/AddProp" method="post">
+                  <ul>
+                    <li>Brand<input type="text" name="propBrand"/></li>
+                    <li>Name<input type="text" name="propName"/></li>
+                    <li>Length<input type="text" name="propLength"/></li>
+                    <li>Pitch<input type="text" name="propPitch"/></li>
+                    <li>Weight<input type="text" name="propWeight"/></li>
+                    <li>Price<input type="text" name="propPrice"/></li>
+                  </ul>
+                </form>
+                <span class="navButton" id="addProp">Add</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      
+  </body>
+</html>
+{% endautoescape %}

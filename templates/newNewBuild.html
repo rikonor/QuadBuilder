@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+{% autoescape true %}
+<html>
+  <head>
+    <!-- Remember to change css file path -->
+    <link rel="stylesheet" href="../stylesheets/newNewBuild.css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src='/scripts/newNewBuild.js'></script>
+    <title>QuadBuilder v1.0 - by rikonor</title>
+  </head>
+  <body>
+    <div id="header">
+      <p id="header_title"><em>QuadBuilder</em></p>
+      <div id="userNavbar">
+        {% if user %}
+        Welcome, <a class="navButton" href="/User/{{ user.key.id() }}">{{ user.name }}</a>!
+        <a class="navButton" href="/Logout">Logout</a>
+        {% else %}
+        <a class="navButton" href="/Signup">Signup</a>
+        <a class="navButton" href="/Login">Login</a>
+        {% endif %}
+      </div>
+      <div id="navbar">
+        <a class="navButton" href="/">Latest Builds</a>
+        <a class="navButton" href="/NewBuild">New Build</a>
+        <a class="navButton" href="/Add">Add part</a>
+        <a class="navButton" href="/AllBuilds">All submissions</a>
+      </div>
+    </div>
+
+    <div id="content">
+      <h2 class="headLine">New Build</h2>
+      <div id="wrapper">
+        <div id="tabContainer">
+          <div class="tabs">
+            <ul>
+              <li id="tabHeader_motor">Motor</li>
+              <li id="tabHeader_esc">ESC</li>
+              <li id="tabHeader_prop">Prop</li>
+            </ul>
+          </div>
+          <div class="tabscontent">
+            <div class="tabpage" id="tabpage_motor">
+              <div id="motor">
+                <p>Motors</p>
+                {% for motor in motors %}
+                <div class="itemPartsList">
+                  <span class="itemId" id="Motor">{{ motor.key.id() }}</span>
+                  <span class="itemText">{{ motor.toString() }}</span>
+                  <a href="/Motor/{{ motor.key.id() }}" class="partLink"> p</a>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+            <div class="tabpage" id="tabpage_esc">
+              <div id="esc">
+                <p>Esc's</p>
+                {% for esc in escs %}
+                <div class="itemPartsList">
+                  <span class="itemId" id="Esc">{{ esc.key.id() }}</span>
+                  <span class="itemText">{{ esc.toString() }}</span>
+                  <a href="/ESC/{{ esc.key.id() }}" class="partLink"> p</a>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+            <div class="tabpage" id="tabpage_prop">
+              <div id="prop">
+                <p>Props</p>
+                {% for prop in props %}
+                <div class="itemPartsList">
+                  <span class="itemId" id="Prop">{{ prop.key.id() }}</span>
+                  <span class="itemText">{{ prop.toString() }}</span>
+                  <a href="/Prop/{{ prop.key.id() }}" class="partLink"> p</a>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="finalList">
+          <p id="finalListHeader">
+            Quad specifications
+          </p>
+          <span class="navButton" id="reset">Reset</span>
+          <span class="navButton" id="submit">Submit</span>
+          <div class="itemFinalList" id="Motor"></div>
+          <div class="itemFinalList" id="Esc"></div>
+          <div class="itemFinalList" id="Prop"></div>
+      </div>
+    </div>
+      
+  </body>
+</html>
+{% endautoescape %}
